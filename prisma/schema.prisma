@@ -1,0 +1,51 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Event {
+  id              String  @id @default(cuid())
+  title           String
+  details         String?
+  slug            String  @unique
+  maximumAttendee Int?    @map("maximum_attendee")
+
+  Attendde Attendde[]
+
+  @@map("events")
+}
+
+model Attendde {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  createdAt DateTime @default(now()) @map("created_at")
+  eventId   String   @map("event_id")
+
+  event   Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  CheckIn CheckIn?
+
+  @@unique([eventId, email])
+  @@map("attenddes")
+}
+
+model CheckIn {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  attendde   Attendde @relation(fields: [attenddeId], references: [id], onDelete: Cascade)
+  attenddeId Int      @unique @map("attendde_id")
+
+  @@map("check_in")
+}
