@@ -32,5 +32,7 @@ jobs:
     - name: Push image
       run: |
         docker push rickphp/service.passin:${{ steps.generate_sha.outputs.sha }}
+        docker tag rickphp/service.passin:${{ steps.generate_sha.outputs.sha }} rickphp/service.passin:latest
+        docker push rickphp/service.passin:latest
 
     
