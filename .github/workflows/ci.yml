@@ -39,7 +39,7 @@ jobs:
         uses: fjogeleit/yaml-update-action@main
         with:
           branch: main
-          valueFile: "deploy/value.yaml"
+          valueFile: "deploy/values.yaml"
           propertyPath: "image.tag"
           value: ${{steps.generate_sha.outputs.sha}}
           commitChange: true
