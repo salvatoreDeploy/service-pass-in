@@ -2,7 +2,7 @@ replicaCount: 5
 image:
   repository: rickphp/service.passin
   pullPolicy: Always
-  tag: 3adfc3c
+  tag: 39d6b87
   port: 3333
 imagePullSecrets: []
 nameOverride: ''
