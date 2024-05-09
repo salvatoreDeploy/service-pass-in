@@ -43,4 +43,4 @@ jobs:
           propertyPath: "image.tag"
           value: ${{steps.generate_sha.outputs.sha}}
           commitChange: true
-          message: "new Update tag on value helm new version"
+          message: "new Update tag on value helm"
