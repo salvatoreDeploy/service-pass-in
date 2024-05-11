@@ -2,16 +2,16 @@ replicaCount: 5
 image:
   repository: rickphp/service.passin
   pullPolicy: Always
-  tag: 02a42e6
+  tag: 39d6b87
   port: 3333
 imagePullSecrets: []
-nameOverride: ''
-fullnameOverride: ''
+nameOverride: ""
+fullnameOverride: ""
 serviceAccount:
   create: true
   automount: true
   annotations: {}
-  name: ''
+  name: ""
 podAnnotations: {}
 podLabels: {}
 podSecurityContext: {}
@@ -21,7 +21,7 @@ service:
   port: 80
 ingress:
   enabled: false
-  className: ''
+  className: ""
   annotations: {}
   hosts:
     - host: chart-example.local
