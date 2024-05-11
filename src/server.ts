@@ -10,6 +10,7 @@ import fastifySwagger from "@fastify/swagger";
 import fastifySwaggerUi from "@fastify/swagger-ui";
 import fastifyCors from "@fastify/cors";
 import { errorHandler } from "./error/error-handler";
+import { health } from "./routes/health";
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
@@ -43,6 +44,7 @@ app.register(getEvent)
 app.register(getAttenddeBadge)
 app.register(checkIn)
 app.register(getEventAttenddes)
+app.register(health)
 
 app.setErrorHandler(errorHandler)
 
