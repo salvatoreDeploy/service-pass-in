@@ -2,16 +2,16 @@ replicaCount: 5
 image:
   repository: rickphp/service.passin
   pullPolicy: Always
-  tag: 39d6b87
+  tag: c85201a
   port: 3333
 imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
+nameOverride: ''
+fullnameOverride: ''
 serviceAccount:
   create: true
   automount: true
   annotations: {}
-  name: ""
+  name: ''
 podAnnotations: {}
 podLabels: {}
 podSecurityContext: {}
@@ -21,7 +21,7 @@ service:
   port: 80
 ingress:
   enabled: false
-  className: ""
+  className: ''
   annotations: {}
   hosts:
     - host: chart-example.local
@@ -36,7 +36,6 @@ resources:
   limits:
     cpu: 400m
     memory: 512Mi
-
 startupProbe:
   httpGet:
     path: /health
@@ -58,19 +57,13 @@ readinessProbe:
   initialDelaySeconds: 60
   failureThreshold: 5
   periodSeconds: 10
-
 autoscaling:
   enabled: false
   minReplicas: 1
   maxReplicas: 100
 targetMemoryUtilizationPercentage: 75
-
 volumes: []
-
 volumeMounts: []
-
 nodeSelector: {}
-
 tolerations: []
-
 affinity: {}
